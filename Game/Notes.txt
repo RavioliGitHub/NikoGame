@@ -1,0 +1,35 @@
+Patterns
+
+State (optional, state machine)
+
+Command ! Important (Entity)
+Observer - Entity
+Singleton : think twice before using
+
+Component
+
+
+
+
+Game Loop - aim for 60 fps
+while (true) /Loop option 1, 16 milli per tick
+{
+  double start = getCurrentTime();
+  processInput();
+  update();
+  render();
+
+  sleep(start + MS_PER_FRAME - getCurrentTime());
+}
+
+Classes
+GameObject
+-int x, int y, position
+-ID
+
+Components
+-InputComponent
+-PlayerInputComponent
+-Physics
+-Graphics
+-Audio
