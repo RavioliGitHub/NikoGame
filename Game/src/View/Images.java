@@ -3,13 +3,11 @@ package View;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileSystems;
 
-public enum Images implements Graphic{
+public enum Images implements GraphicComponent {
     PLAYER1("player1.png", new int[]{2,3,1,0}),
-    DARK_ENNEMY("enemy.png"),
+    DARK_ENEMY("enemy.png"),
     THIEF("thiefenemy.png"),
 
 
@@ -75,7 +73,7 @@ public enum Images implements Graphic{
     }
 
     @Override
-    public Graphic cloneGraphic() {
+    public GraphicComponent cloneGraphic() {
         return this;
     }
 

@@ -2,7 +2,7 @@ package View;
 
 import java.awt.*;
 
-public interface Graphic {
+public interface GraphicComponent {
     void draw(Graphics g, int x, int y);
-    Graphic cloneGraphic();
+    GraphicComponent cloneGraphic();
 }
