@@ -3,6 +3,6 @@ package Components;
 /**
  * Takes care of rendering
  */
-public class GraphicsComponent {
+public class GraphicsComponent implements Component {
 
 }

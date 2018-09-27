@@ -1,10 +1,20 @@
 package Model;
 
+import Default.Game;
+
 public class Entity {
-    public int ID;
+    private int ID;
 
     /**
      * For debugging purposes only
      */
-    public String name;
+    private String name;
+
+    public Entity(){
+        this.ID = Game.getInstance().getEntityManager().getNextAvailableID();
+    }
+    public Entity(String name){
+        this.ID = Game.getInstance().getEntityManager().getNextAvailableID();
+        this.name = name;
+    }
 }

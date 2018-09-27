@@ -1,4 +1,4 @@
 package Components;
 
-public class InputComponent {
+public class InputComponent implements Component{
 }

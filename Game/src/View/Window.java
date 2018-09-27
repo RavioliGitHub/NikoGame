@@ -1,10 +1,6 @@
 package View;
 
-import Model.GameObject;
-
 import java.awt.Color;
-import java.awt.event.KeyListener;
-import java.util.ArrayList;
 
 import javax.swing.*;
 

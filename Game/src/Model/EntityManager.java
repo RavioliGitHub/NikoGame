@@ -9,16 +9,15 @@ public class EntityManager {
 
     /** I’m too lazy to write a "safe" method to get a globally-unique ID; for now,
      I just return 1 the first time I’m called, 2 the second time, etc… */
-    protected int getNextAvailableID(){
+    public int getNextAvailableID(){
         //Might need a lock here
-
         ID++;
         return ID;
     }
 
     /** Whenever you create an entity, you’d better invoke this method too!*/
-    public void registerEntity( Entity e ){
-        entities.add(e);
+    public void registerEntity(Entity entity){
+        entities.add(entity);
     }
 
 
@@ -26,7 +25,7 @@ public class EntityManager {
      * Merely removes the entity from the store. It becomes a GC candidate
      * almost immediately (since all other refs are transient)
      */
-    public void killEntity( Entity e ){
-
+    public void killEntity(Entity entity){
+        entities.remove(entity);
     }
 }
