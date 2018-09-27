@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 
-public enum Images {
+public enum Images implements Graphic{
     PLAYER1("player1.png", new int[]{2,3,1,0}),
     DARK_ENNEMY("enemy.png"),
     THIEF("thiefenemy.png"),
@@ -73,4 +73,10 @@ public enum Images {
         BufferedImage image = bufferedImage.getSubimage(partOfMovement*48, directionOrder[direction]*48, 48, 48);
         g.drawImage(image, x*48, y*48, 48, 48, null);
     }
+
+    @Override
+    public Graphic cloneGraphic() {
+        return this;
+    }
+
 }
