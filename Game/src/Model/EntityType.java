@@ -1,6 +1,7 @@
 package Model;
 
 import Components.GraphicsComponent;
+import Default.Game;
 import View.Images;
 
 public enum EntityType {
@@ -26,8 +27,7 @@ public enum EntityType {
     }
 
     public int create(){
-        Entity entity = new Entity(this.toString());
-        int ID = entity.getID();
+        int ID = Game.getInstance().getEntityManager().createEntity(this.toString());
         new GraphicsComponent(ID, image);
         return ID;
     }

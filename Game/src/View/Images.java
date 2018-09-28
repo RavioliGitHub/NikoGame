@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public enum Images implements GraphicComponent {
+public enum Images implements ImageCompositeInterface {
     PLAYER1("player1.png", new int[]{2,3,1,0}),
     DARK_ENEMY("enemy.png"),
     THIEF("thiefenemy.png"),
@@ -73,7 +73,7 @@ public enum Images implements GraphicComponent {
     }
 
     @Override
-    public GraphicComponent cloneGraphic() {
+    public ImageCompositeInterface cloneGraphic() {
         return this;
     }
 

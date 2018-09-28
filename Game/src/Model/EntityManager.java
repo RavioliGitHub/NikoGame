@@ -3,29 +3,32 @@ package Model;
 import java.util.ArrayList;
 
 public class EntityManager {
-    int ID = 0;
+    private int ID = 0;
 
-    private ArrayList<Entity> entities;
+    private ArrayList<Integer> entities;
+    private ArrayList<String> names;
 
-    /** I’m too lazy to write a "safe" method to get a globally-unique ID; for now,
-     I just return 1 the first time I’m called, 2 the second time, etc… */
-    public int getNextAvailableID(){
-        //Might need a lock here
+
+    public int createEntity(){
         ID++;
+        entities.add(ID);
+        names.add("default");
         return ID;
     }
 
-    /** Whenever you create an entity, you’d better invoke this method too!*/
-    public void registerEntity(Entity entity){
-        entities.add(entity);
+    public int createEntity(String name){
+        ID++;
+        entities.add(ID);
+        names.add(name);
+        return ID;
+    }
+
+    public void killEntity(int ID){
+        entities.remove(ID);
     }
 
 
-    /**
-     * Merely removes the entity from the store. It becomes a GC candidate
-     * almost immediately (since all other refs are transient)
-     */
-    public void killEntity(Entity entity){
-        entities.remove(entity);
+    public ArrayList<Integer> getEntities() {
+        return entities;
     }
 }
