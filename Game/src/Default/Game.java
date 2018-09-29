@@ -6,8 +6,6 @@ import Model.EntityType;
 import Systems.SystemManager;
 import View.Window;
 
-import java.time.LocalTime;
-
 public class Game {
 
     private Window window;
@@ -75,10 +73,10 @@ public class Game {
         EntityType.PLAYER1.testPlayerComponentCreation(ID);
 
         int ID2  = EntityType.BACKPACK.create(10,2);
-        EntityType.PLAYER1.testPlayerComponentCreation2(ID2);
+        EntityType.PLAYER1.testBackPackComponentCreation2(ID2);
 
         int ID3 = EntityType.THIEF.create(10,10);
-        EntityType.BACKPACK.testPlayerComponentCreationAZERTY(ID3);
+        EntityType.BACKPACK.testNinjaComponentCreationAZERTY(ID3);
     }
 
 

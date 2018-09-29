@@ -6,5 +6,6 @@ public enum ComponentTypes {
     PHYSICS,
     POSITION,
     VELOCITY,
-    KEY_ACTION_MAP;
+    KEY_ACTION_MAP,
+    DIRECTION;
 }

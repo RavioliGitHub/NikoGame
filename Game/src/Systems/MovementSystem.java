@@ -30,24 +30,30 @@ public class MovementSystem {
 
     private void adaptPosition(VelocityComponent velocityComponent, PositionComponent positionComponent){
         if(velocityComponent.getCurrentSpeed() > 0) {
-            switch (velocityComponent.getDirection()) {
-                case 0:
-                    //TODO remember, increase by 1 is only a tempory value to test
-                    positionComponent.increaseX(1);
-                    break;
-                case 1:
-                    positionComponent.increaseY(-1);
-                    break;
-                case 2:
-                    positionComponent.increaseX(-1);
-                    break;
-                case 3:
-                    positionComponent.increaseY(1);
-                    break;
-                default:
-                    throw new RuntimeException("Invalide direction" + velocityComponent.getDirection());
+            if(velocityComponent.movePercentage() > 0.5 && !velocityComponent.isMoveDoneOnPosition()) {
+                velocityComponent.moveDoneOnPosition();
+                switch (velocityComponent.getDirection()) {
+                    case 0:
+                        positionComponent.increaseX(1);
+                        break;
+                    case 1:
+                        positionComponent.increaseY(-1);
+                        break;
+                    case 2:
+                        positionComponent.increaseX(-1);
+                        break;
+                    case 3:
+                        positionComponent.increaseY(1);
+                        break;
+                    default:
+                        throw new RuntimeException("Invalid direction" + velocityComponent.getDirection());
+                }
+            }
+            if(velocityComponent.movePercentage() > 1) {
+                velocityComponent.startMovement(velocityComponent.getDirection(), 0);
+                velocityComponent.invertMoveAnimation1();
             }
         }
-        velocityComponent.setCurrentSpeed(0);
+
     }
 }

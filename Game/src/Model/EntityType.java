@@ -1,9 +1,6 @@
 package Model;
 
-import Components.GraphicsComponent;
-import Components.KeyActionComponent;
-import Components.PositionComponent;
-import Components.VelocityComponent;
+import Components.*;
 import Controller.Action;
 import Default.Game;
 import View.Images;
@@ -48,14 +45,16 @@ public enum EntityType {
         keyEventActionHashMap.put(KeyEvent.VK_D, Action.MOVE_RIGHT);
         keyEventActionHashMap.put(KeyEvent.VK_A, Action.MOVE_LEFT);
 
+        new DirectionComponent(ID, 0);
+
         new KeyActionComponent(ID, keyEventActionHashMap);
 
-        new VelocityComponent(ID, 1, 0, 1);
+        new VelocityComponent(ID, 1, 0, 2);
 
 
     }
 
-    public void testPlayerComponentCreation2(int ID){
+    public void testBackPackComponentCreation2(int ID){
         HashMap<Integer, Action> keyEventActionHashMap = new HashMap<>();
 
         keyEventActionHashMap.put(KeyEvent.VK_UP, Action.MOVE_UP);
@@ -70,7 +69,7 @@ public enum EntityType {
     }
 
 
-    public void testPlayerComponentCreationAZERTY(int ID){
+    public void testNinjaComponentCreationAZERTY(int ID){
         HashMap<Integer, Action> keyEventActionHashMap = new HashMap<>();
 
         keyEventActionHashMap.put(KeyEvent.VK_Z, Action.MOVE_UP);
