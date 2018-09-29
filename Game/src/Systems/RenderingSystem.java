@@ -4,7 +4,9 @@ import Components.ComponentManager;
 import Components.ComponentTypes;
 import Components.GraphicsComponent;
 import Components.PositionComponent;
+import Controller.Keyboard;
 import Default.Game;
+import View.Drawing;
 import View.Images;
 
 import javax.swing.*;
@@ -13,15 +15,21 @@ import java.util.ArrayList;
 
 public class RenderingSystem extends JPanel {
 
-    public RenderingSystem() {
+    public RenderingSystem(Keyboard keyboard) {
         this.setFocusable(true);
         this.requestFocusInWindow();
+        this.addKeyListener(keyboard);
     }
 
     @Override
     public void paintComponent(Graphics g) {
         ArrayList<Integer> entities = Game.getInstance().getEntityManager().getEntities();
         ComponentManager componentManager = Game.getInstance().getComponentManager();
+
+        Drawing.drawBackground(g);
+        Drawing.drawGrid(g);
+        Drawing.drawCoordinatesOnEveryTile(g);
+        Drawing.drawTime(g);
 
         for (int ID : entities){
             if (componentManager.contains(ID, ComponentTypes.GRAPHICS)&&

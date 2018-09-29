@@ -17,4 +17,12 @@ public class PositionComponent extends Component{
     public int getY() {
         return y;
     }
+
+    public void increaseX(int change){
+        x = x + change;
+    }
+
+    public void increaseY(int change){
+        y = y + change;
+    }
 }

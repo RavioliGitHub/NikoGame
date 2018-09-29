@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.*;
+import java.time.LocalTime;
 
 public class Drawing {
     public static void drawGrid(Graphics g){
@@ -34,5 +35,22 @@ public class Drawing {
                 g.drawString(coordinates, x+3, y+24);
             }
         }
+    }
+
+    public static void drawBackground(Graphics g){
+        g.clearRect(0,0,Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT);
+    }
+
+    public static void drawTime(Graphics g){
+        g.setFont(new Font("TimesRoman", Font.BOLD, 32));
+
+        LocalTime localTime = LocalTime.now();
+        String hours = Integer.toString(localTime.getHour());
+        String minutes = Integer.toString(localTime.getMinute());
+        String seconds = Integer.toString(localTime.getSecond());
+
+        String time = hours + " : " + minutes + " : " + seconds;
+
+        g.drawString(time, 30*48, 3*48);
     }
 }

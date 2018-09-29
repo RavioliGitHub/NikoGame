@@ -6,6 +6,8 @@ import Model.EntityType;
 import Systems.SystemManager;
 import View.Window;
 
+import java.time.LocalTime;
+
 public class Game {
 
     private Window window;
@@ -13,46 +15,50 @@ public class Game {
     private ComponentManager componentManager;
     private SystemManager systemManager;
     private boolean running;
+    private int player1;
 
     private static Game instance;
 
 
     public static Game getInstance(){
-        if (instance == null){
-            instance = new Game();
-        }
+        assert instance != null;
+        return instance;
+    }
+
+    public static Game createInstance(){
+        assert instance == null;
+        instance = new Game();
         return instance;
     }
 
     private Game(){
+        instance = this;
+
         entityManager = new EntityManager();
         componentManager = new ComponentManager();
         systemManager = new SystemManager();
 
         window = new Window(systemManager.getRenderingSystem());
 
+        player1 = EntityType.PLAYER1.create(10,10);
+
         running = true;
     }
 
-    public void gameLoop(){
-        int a = 1;
-        int b = 1;
-        int c = 0;
-        int d = 0;
+    /**
+     while (true)
+     {
+     double start = getCurrentTime();
+     processInput();
+     update();
+     render();
 
+     sleep(start + MS_PER_FRAME - getCurrentTime());
+     }
+    */
+
+     public void gameLoop(){
         while(running){
-
-            if(d < 40) {
-                EntityType.values()[c % EntityType.values().length].create(a, b);
-            }
-            else {running = false;}
-
-            a += 1;
-            b += 1;
-            c += 1;
-            d += 1;
-
-
             systemManager.update();
 
             try {
@@ -62,8 +68,6 @@ public class Game {
             }
         }
     }
-
-
 
 
     public EntityManager getEntityManager() {

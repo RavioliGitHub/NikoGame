@@ -11,6 +11,7 @@ public class ComponentManager {
     private HashMap<Integer, PhysicsComponent> physicsComponents;
     private HashMap<Integer, PositionComponent> positionComponents;
     private HashMap<Integer, VelocityComponent> velocityComponents;
+    private HashMap<Integer, KeyActionComponent> keyActionComponents;
 
     private HashMap<ComponentTypes, HashMap> componentTypeTable;
 
@@ -21,6 +22,7 @@ public class ComponentManager {
         physicsComponents = new HashMap<>();
         positionComponents = new HashMap<>();
         velocityComponents = new HashMap<>();
+        keyActionComponents = new HashMap<>();
 
         componentTypeTable = new HashMap<>();
 
@@ -33,6 +35,7 @@ public class ComponentManager {
         componentTypeTable.put(PHYSICS, physicsComponents);
         componentTypeTable.put(POSITION, positionComponents);
         componentTypeTable.put(VELOCITY, velocityComponents);
+        componentTypeTable.put(KEY_ACTION_MAP, keyActionComponents);
     }
 
     public void registerComponent(int ID, Component component, ComponentTypes componentType){
@@ -44,6 +47,11 @@ public class ComponentManager {
         HashMap typeMap = componentTypeTable.get(componentType);
         Component component = (Component) typeMap.get(ID);
         return component;
+    }
+
+    public HashMap getComponentMap(ComponentTypes componentType){
+        HashMap typeMap = componentTypeTable.get(componentType);
+        return typeMap;
     }
 
     public boolean contains(int ID, ComponentTypes componentType){

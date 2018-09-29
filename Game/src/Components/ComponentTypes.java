@@ -5,5 +5,6 @@ public enum ComponentTypes {
     INPUT,
     PHYSICS,
     POSITION,
-    VELOCITY;
+    VELOCITY,
+    KEY_ACTION_MAP;
 }
