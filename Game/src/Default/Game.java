@@ -74,8 +74,11 @@ public class Game {
         int ID  = EntityType.PLAYER1.create(2,2);
         EntityType.PLAYER1.testPlayerComponentCreation(ID);
 
-        int ID2  = EntityType.BACKPACK.create(3,3);
+        int ID2  = EntityType.BACKPACK.create(10,2);
         EntityType.PLAYER1.testPlayerComponentCreation2(ID2);
+
+        int ID3 = EntityType.THIEF.create(10,10);
+        EntityType.BACKPACK.testPlayerComponentCreationAZERTY(ID3);
     }
 
 

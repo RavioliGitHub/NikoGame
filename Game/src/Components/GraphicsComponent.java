@@ -11,9 +11,7 @@ public class GraphicsComponent extends Component {
     public GraphicsComponent(int ID, Images image){
         super(ID, ComponentTypes.GRAPHICS);
         this.image = image;
-
     }
-
 
     public Images getImage() {
         return image;

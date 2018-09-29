@@ -10,7 +10,6 @@ public class VelocityComponent extends Component{
         this.direction = direction;
         this.currentSpeed = currentSpeed;
         this.maxSpeed = maxSpeed;
-
     }
 
     public int getDirection() {

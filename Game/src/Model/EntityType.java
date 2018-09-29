@@ -67,7 +67,19 @@ public enum EntityType {
         new KeyActionComponent(ID, keyEventActionHashMap);
 
         new VelocityComponent(ID, 1, 0, 1);
+    }
 
 
+    public void testPlayerComponentCreationAZERTY(int ID){
+        HashMap<Integer, Action> keyEventActionHashMap = new HashMap<>();
+
+        keyEventActionHashMap.put(KeyEvent.VK_Z, Action.MOVE_UP);
+        keyEventActionHashMap.put(KeyEvent.VK_S, Action.MOVE_DOWN);
+        keyEventActionHashMap.put(KeyEvent.VK_Q, Action.MOVE_LEFT);
+        keyEventActionHashMap.put(KeyEvent.VK_D, Action.MOVE_RIGHT);
+
+        new KeyActionComponent(ID, keyEventActionHashMap);
+
+        new VelocityComponent(ID, 1, 0, 1);
     }
 }
