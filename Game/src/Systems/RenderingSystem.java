@@ -7,14 +7,19 @@ import Components.PositionComponent;
 import Default.Game;
 import View.Images;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class RenderingSystem extends Systems{
+public class RenderingSystem extends JPanel {
 
+    public RenderingSystem() {
+        this.setFocusable(true);
+        this.requestFocusInWindow();
+    }
 
     @Override
-    void update(Graphics g) {
+    public void paintComponent(Graphics g) {
         ArrayList<Integer> entities = Game.getInstance().getEntityManager().getEntities();
         ComponentManager componentManager = Game.getInstance().getComponentManager();
 

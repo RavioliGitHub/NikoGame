@@ -1,5 +1,8 @@
 package View;
 
+import Default.Game;
+import Systems.RenderingSystem;
+
 import java.awt.Color;
 
 import javax.swing.*;
@@ -9,19 +12,19 @@ public class Window {
     public static final int WINDOW_WIDTH = 1920;
     public static final int WINDOW_HEIGHT = 1080;
 
-    private Map map = new Map();
+    private RenderingSystem renderingSystem = Game.getInstance().getSystemManager().getRenderingSystem();
 
     public Window() {
         JFrame window = new JFrame("Game");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         window.getContentPane().setBackground(Color.gray);
-        window.getContentPane().add(this.map);
+        window.getContentPane().add(this.renderingSystem);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
     }
 
     public void update(){
-        map.repaint();
+        renderingSystem.repaint();
     }
 }
