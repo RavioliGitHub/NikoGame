@@ -3,10 +3,16 @@ package Model;
 import java.util.ArrayList;
 
 public class EntityManager {
-    private int ID = 0;
+    private int ID;
 
     private ArrayList<Integer> entities;
     private ArrayList<String> names;
+
+    public EntityManager(){
+        ID = 0;
+        entities = new ArrayList<>();
+        names = new ArrayList<>();
+    }
 
 
     public int createEntity(){

@@ -29,7 +29,7 @@ public class RenderingSystem extends JPanel {
                 GraphicsComponent graphicsComponent =
                     (GraphicsComponent) componentManager.getComponent(ID, ComponentTypes.GRAPHICS);
                 PositionComponent positionComponent =
-                    (PositionComponent) componentManager.getComponent(ID, ComponentTypes.GRAPHICS);
+                    (PositionComponent) componentManager.getComponent(ID, ComponentTypes.POSITION);
 
                 Images image = graphicsComponent.getImage();
                 int x = positionComponent.getX();

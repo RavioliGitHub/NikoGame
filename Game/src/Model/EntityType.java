@@ -1,6 +1,7 @@
 package Model;
 
 import Components.GraphicsComponent;
+import Components.PositionComponent;
 import Default.Game;
 import View.Images;
 
@@ -26,9 +27,10 @@ public enum EntityType {
         this.image = image;
     }
 
-    public int create(){
+    public int create(int x, int y){
         int ID = Game.getInstance().getEntityManager().createEntity(this.toString());
         new GraphicsComponent(ID, image);
+        new PositionComponent(ID, x, y);
         return ID;
     }
 }

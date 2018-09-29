@@ -2,16 +2,19 @@ package Default;
 
 import Components.ComponentManager;
 import Model.EntityManager;
+import Model.EntityType;
 import Systems.SystemManager;
+import View.Window;
 
 public class Game {
-    private static Game instance;
 
+    private Window window;
     private EntityManager entityManager;
     private ComponentManager componentManager;
     private SystemManager systemManager;
-
     private boolean running;
+
+    private static Game instance;
 
 
     public static Game getInstance(){
@@ -26,19 +29,37 @@ public class Game {
         componentManager = new ComponentManager();
         systemManager = new SystemManager();
 
-        gameLoop();
+        window = new Window(systemManager.getRenderingSystem());
+
+        running = true;
     }
 
-    private void gameLoop(){
+    public void gameLoop(){
+        int a = 1;
+        int b = 1;
+        int c = 0;
+        int d = 0;
 
         while(running){
+
+            if(d < 40) {
+                EntityType.values()[c % EntityType.values().length].create(a, b);
+            }
+            else {running = false;}
+
+            a += 1;
+            b += 1;
+            c += 1;
+            d += 1;
+
+
+            systemManager.update();
 
             try {
                 Thread.sleep(16);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
     }
 
