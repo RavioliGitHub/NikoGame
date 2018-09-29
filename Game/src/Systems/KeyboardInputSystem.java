@@ -24,28 +24,30 @@ public class KeyboardInputSystem {
         KeyEvent keyEvent1 = queue1.poll();
         KeyEvent keyEvent2 = queue2.poll();
 
-        if(keyEvent1 != null){reactToKey(keyEvent1);}
+        if(keyEvent1 != null){
+            reactToKey(keyEvent1);}
         if(keyEvent2 != null){reactToKey(keyEvent2);}
     }
 
     private void reactToKey(KeyEvent keyEvent){
+        int keyEventCode = keyEvent.getKeyCode();
         HashMap<Integer, KeyActionComponent> entityKeyMap =
             Game.getInstance().getComponentManager().getComponentMap(ComponentTypes.KEY_ACTION_MAP);
 
         entityKeyMap.forEach((ID, keyActionComponent) -> {
-            if (keyActionComponent.contains(keyEvent)){
-                Action action = keyActionComponent.getAction(keyEvent);
+            if (keyActionComponent.contains(keyEventCode)){
+                Action action = keyActionComponent.getAction(keyEventCode);
                 action.execute(ID);
             }
         });
 
     }
 
-    public Queue<KeyEvent> getQueue1() {
-        return queue1;
+    public void addToQueue1(KeyEvent keyEvent) {
+        queue1.add(keyEvent);
     }
 
-    public Queue<KeyEvent> getQueue2() {
-        return queue2;
+    public void addToQueue2(KeyEvent keyEvent) {
+        queue2.add(keyEvent);
     }
 }

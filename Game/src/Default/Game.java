@@ -58,6 +58,7 @@ public class Game {
     */
 
      public void gameLoop(){
+         testPreLoop();
         while(running){
             systemManager.update();
 
@@ -67,6 +68,14 @@ public class Game {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void testPreLoop(){
+        int ID  = EntityType.PLAYER1.create(2,2);
+        EntityType.PLAYER1.testPlayerComponentCreation(ID);
+
+        int ID2  = EntityType.BACKPACK.create(3,3);
+        EntityType.PLAYER1.testPlayerComponentCreation2(ID2);
     }
 
 

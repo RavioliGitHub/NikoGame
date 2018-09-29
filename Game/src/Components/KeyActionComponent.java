@@ -1,24 +1,22 @@
 package Components;
 
 import Controller.Action;
-
-import java.awt.event.KeyEvent;
 import java.util.HashMap;
 
 public class KeyActionComponent extends Component{
 
-    private HashMap<KeyEvent, Action> keyActionMap;
+    private HashMap<Integer, Action> keyActionMap;
 
-    public KeyActionComponent(int ID, ComponentTypes componentType, HashMap<KeyEvent, Action> keyActionMap) {
-        super(ID, componentType);
+    public KeyActionComponent(int ID, HashMap<Integer, Action> keyActionMap) {
+        super(ID, ComponentTypes.KEY_ACTION_MAP);
         this.keyActionMap = keyActionMap;
     }
 
-    public boolean contains(KeyEvent keyEvent){
-        return keyActionMap.containsKey(keyEvent);
+    public boolean contains(int keyEventCode){
+        return keyActionMap.containsKey(keyEventCode);
     }
 
-    public Action getAction(KeyEvent keyEvent){
-        return keyActionMap.get(keyEvent);
+    public Action getAction(int keyEventCode){
+        return keyActionMap.get(keyEventCode);
     }
 }

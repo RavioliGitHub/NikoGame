@@ -1,6 +1,7 @@
 package Controller;
 
 import Default.Game;
+import Systems.SystemManager;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -24,7 +25,7 @@ public class Keyboard implements KeyListener {
             case KeyEvent.VK_D:
             case KeyEvent.VK_E:
             case KeyEvent.VK_SPACE:
-                Game.getInstance().getSystemManager().getKeyboardInputSystem().getQueue1().add(event);
+                Game.getInstance().getSystemManager().getKeyboardInputSystem().addToQueue2(event);
                 break;
 
             case KeyEvent.VK_UP:
@@ -33,7 +34,7 @@ public class Keyboard implements KeyListener {
             case KeyEvent.VK_LEFT:
             case KeyEvent.VK_RIGHT:
             case KeyEvent.VK_ENTER:
-                Game.getInstance().getSystemManager().getKeyboardInputSystem().getQueue2().add(event);
+                Game.getInstance().getSystemManager().getKeyboardInputSystem().addToQueue1(event);
                 break;
         }
     }

@@ -1,9 +1,16 @@
 package Model;
 
 import Components.GraphicsComponent;
+import Components.KeyActionComponent;
 import Components.PositionComponent;
+import Components.VelocityComponent;
+import Controller.Action;
 import Default.Game;
 import View.Images;
+
+import java.awt.event.KeyEvent;
+import java.util.HashMap;
+import java.util.Hashtable;
 
 public enum EntityType {
     PLAYER1(Images.PLAYER1),
@@ -32,5 +39,35 @@ public enum EntityType {
         new GraphicsComponent(ID, image);
         new PositionComponent(ID, x, y);
         return ID;
+    }
+
+    public void testPlayerComponentCreation(int ID){
+        HashMap<Integer, Action> keyEventActionHashMap = new HashMap<>();
+        keyEventActionHashMap.put(KeyEvent.VK_W, Action.MOVE_UP);
+        keyEventActionHashMap.put(KeyEvent.VK_S, Action.MOVE_DOWN);
+        keyEventActionHashMap.put(KeyEvent.VK_D, Action.MOVE_RIGHT);
+        keyEventActionHashMap.put(KeyEvent.VK_A, Action.MOVE_LEFT);
+
+        new KeyActionComponent(ID, keyEventActionHashMap);
+
+        new VelocityComponent(ID, 1, 0, 1);
+
+
+    }
+
+    public void testPlayerComponentCreation2(int ID){
+        HashMap<Integer, Action> keyEventActionHashMap = new HashMap<>();
+
+        keyEventActionHashMap.put(KeyEvent.VK_UP, Action.MOVE_UP);
+        keyEventActionHashMap.put(KeyEvent.VK_DOWN, Action.MOVE_DOWN);
+        keyEventActionHashMap.put(KeyEvent.VK_CLEAR, Action.MOVE_DOWN);
+        keyEventActionHashMap.put(KeyEvent.VK_RIGHT, Action.MOVE_RIGHT);
+        keyEventActionHashMap.put(KeyEvent.VK_LEFT, Action.MOVE_LEFT);
+
+        new KeyActionComponent(ID, keyEventActionHashMap);
+
+        new VelocityComponent(ID, 1, 0, 1);
+
+
     }
 }

@@ -16,7 +16,6 @@ public class SystemManager {
     }
 
     public void update(){
-
         keyboardInputSystem.update();
         movementSystem.update();
         renderingSystem.repaint();
