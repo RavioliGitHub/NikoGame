@@ -69,14 +69,33 @@ public class Game {
     }
 
     private void testPreLoop(){
-        int ID  = EntityType.PLAYER1.create(2,2);
-        EntityType.PLAYER1.testPlayerComponentCreation(ID);
-
         int ID2  = EntityType.BACKPACK.create(10,2);
         EntityType.PLAYER1.testBackPackComponentCreation2(ID2);
 
         int ID3 = EntityType.THIEF.create(10,10);
         EntityType.BACKPACK.testNinjaComponentCreationAZERTY(ID3);
+
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(2, 2));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(4, 4));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(4, 2));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(2, 4));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(5, 5));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(1, 1));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(1, 5));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(5, 1));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(5, 2));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(5, 3));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(5, 4));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(1, 4));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(1, 3));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(1, 2));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(1, 1));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(2, 1));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(3, 1));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(4, 1));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(2, 5));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(3, 5));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(4, 5));
     }
 
 

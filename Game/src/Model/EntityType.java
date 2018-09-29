@@ -49,7 +49,7 @@ public enum EntityType {
 
         new KeyActionComponent(ID, keyEventActionHashMap);
 
-        new VelocityComponent(ID, 1, 0, 2);
+        new VelocityComponent(ID, 1, 0, 10);
 
 
     }
@@ -79,6 +79,6 @@ public enum EntityType {
 
         new KeyActionComponent(ID, keyEventActionHashMap);
 
-        new VelocityComponent(ID, 1, 0, 1);
+        new VelocityComponent(ID, 1, 0, 300);
     }
 }
