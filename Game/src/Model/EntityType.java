@@ -82,6 +82,6 @@ public enum EntityType {
 
         new KeyActionComponent(ID, keyEventActionHashMap);
 
-        new VelocityComponent(ID, Direction.UP, 0, 300);
+        new VelocityComponent(ID, Direction.UP, 0, 10);
     }
 }
