@@ -2,8 +2,19 @@ package Components;
 
 import java.util.HashMap;
 
+/**
+ * See ECS Model for details
+ * Mainly stores all components in an organized way
+ */
 public class ComponentManager {
 
+    /**
+     * HashMap
+     * (Key, Value) = (Class, ClassList)
+     *
+     * ClassList
+     * (Key, Value) = (ID, Component)
+     */
     private HashMap<Class, HashMap<Integer, Component>> class_ID_ComponentHashMap;
 
     public ComponentManager(){

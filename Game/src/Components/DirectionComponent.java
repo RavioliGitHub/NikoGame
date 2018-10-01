@@ -1,26 +1,23 @@
 package Components;
 
+/**
+ * Handles in which direction something is looking
+ * ! Do not confuse with the movement direction
+ */
 public class DirectionComponent extends Component {
 
-    public static final int RIGHT = 0;
-    public static final int UP = 1;
-    public static final int LEFT = 2;
-    public static final int DOWN = 3;
+    private Direction direction;
 
-    private int direction;
-
-    public DirectionComponent(int ID, int direction) {
+    public DirectionComponent(int ID, Direction direction) {
         super(ID, DirectionComponent.class);
         this.direction = direction;
-        assert direction <= 3 && direction >= 0;
     }
 
-    public int getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 
-    public void setDirection(int direction) {
-        assert direction <= 3 && direction >= 0;
+    public void setDirection(Direction direction) {
         this.direction = direction;
     }
 }

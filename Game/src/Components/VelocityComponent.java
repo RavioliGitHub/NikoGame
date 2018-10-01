@@ -1,24 +1,24 @@
 package Components;
 
 public class VelocityComponent extends Component{
-    private int direction;
+    private Direction direction;
     private double currentSpeed;
-    private double maxSpeed;
+    private double defaultSpeedWhenMoving;
     private boolean moveAnimation1;
     private double moveStartTime;
     private boolean moveDoneOnPosition;
 
-    public VelocityComponent(int ID, int direction, double currentSpeed, double maxSpeed){
+    public VelocityComponent(int ID, Direction direction, double currentSpeed, double defaultSpeedWhenMoving){
         super(ID, VelocityComponent.class);
         this.direction = direction;
         this.currentSpeed = currentSpeed;
-        this.maxSpeed = maxSpeed;
+        this.defaultSpeedWhenMoving = defaultSpeedWhenMoving;
         moveAnimation1 = true;
         moveStartTime = System.nanoTime();
         moveDoneOnPosition = false;
     }
 
-    public void startMovement(int direction, double currentSpeed) {
+    public void startMovement(Direction direction, double currentSpeed) {
         this.direction = direction;
         this.currentSpeed = currentSpeed;
         moveStartTime = System.nanoTime();
@@ -47,8 +47,8 @@ public class VelocityComponent extends Component{
         return currentSpeed;
     }
 
-    public double getMaxSpeed() {
-        return maxSpeed;
+    public double getDefaultSpeedWhenMoving() {
+        return defaultSpeedWhenMoving;
     }
 
     public boolean isMoveAnimation1() {
@@ -59,7 +59,7 @@ public class VelocityComponent extends Component{
         moveAnimation1 = !moveAnimation1;
     }
 
-    public int getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 

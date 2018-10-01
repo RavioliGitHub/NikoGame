@@ -1,6 +1,7 @@
 package View;
 
-import Components.DirectionComponent;
+import Components.Direction;
+import static Components.Direction.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -8,7 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public enum Images implements ImageCompositeInterface {
-    PLAYER1("player1.png", new int[]{2,3,1,0}, true),
+    PLAYER1("player1.png", new Direction[]{DOWN,LEFT,RIGHT, UP}, true),
     DARK_ENEMY("enemy.png"),
     THIEF("thiefenemy.png"),
 
@@ -27,29 +28,23 @@ public enum Images implements ImageCompositeInterface {
     private BufferedImage bufferedImage;
 
     /**
-     * Indicates which part of the image contains the wanted direction
-     * Array containing 4 ints
+     * Indicates where is which sprite in the image
      *
-     * The int at position i indicates which part of the image has to be taken for direction i
-     * Example: For the player1.png, the order is down, left, right, up
-     * Therefore, to have the sprite going up, i need the 4rth row
-     * So the array will be {2,3,1,0}
-     * directionOrder[up] = directionOrder[1] = 3
-     * The image at 3*48 is the 4rth image
-     *
-     * If no direction images are available, defaults to {0,0,0,0}
+     * Example:
+     * For the rugbyPlayer, the sprites are in this order
+     * DOWN,LEFT,RIGHT,UP
      */
-    private int[] directionOrder;
+    private Direction[] directionOrder;
 
     private boolean walkingAnimation;
 
     Images(final String fileName){
         bufferedImage = getBufferedImageFromFileName(fileName);
-        directionOrder = new int[]{0,0,0,0};
+        directionOrder = new Direction[]{LEFT,LEFT,LEFT,LEFT};
         walkingAnimation = false;
     }
 
-    Images(final String fileName, final int[] directionOrder, boolean walkingAnimation){
+    Images(final String fileName, final Direction[] directionOrder, boolean walkingAnimation){
         bufferedImage = getBufferedImageFromFileName(fileName);
         this.directionOrder = directionOrder;
         assert directionOrder.length == 4;
@@ -74,10 +69,10 @@ public enum Images implements ImageCompositeInterface {
     }
 
     public void drawMoving(
-            Graphics g, int direction, int directionOfMovement, boolean standing,
-            boolean partOfMovement1, double percentageOfMovement,
-            boolean moveDoneOnPosition,
-            int x, int y){
+        Graphics g, Direction direction, Direction directionOfMovement, boolean standing,
+        boolean partOfMovement1, double percentageOfMovement,
+        boolean moveDoneOnPosition,
+        int x, int y){
 
         int partOfMovXIndex = 0;
         if(walkingAnimation) {
@@ -89,28 +84,28 @@ public enum Images implements ImageCompositeInterface {
             }
         }
         BufferedImage image = bufferedImage.getSubimage(
-            partOfMovXIndex*48, directionOrder[direction]*48, 48, 48);
+            partOfMovXIndex*48, java.util.Arrays.asList(directionOrder).indexOf(direction)*48, 48, 48);
 
         int offset = (int) (48*percentageOfMovement);
         x = x*48;
         y = y*48;
         switch (directionOfMovement){
-            case DirectionComponent.UP:
+            case UP:
                 if(moveDoneOnPosition){y += 48;}
                 y -= offset;
                 break;
 
-            case DirectionComponent.DOWN:
+            case DOWN:
                 if(moveDoneOnPosition){y -= 48;}
                 y += offset;
                 break;
 
-            case DirectionComponent.RIGHT:
+            case RIGHT:
                 if(moveDoneOnPosition){x -= 48;}
                 x += offset;
                 break;
 
-            case DirectionComponent.LEFT:
+            case LEFT:
                 if(moveDoneOnPosition){x += 48;}
                 x -= offset;
                 break;

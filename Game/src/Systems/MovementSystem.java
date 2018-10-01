@@ -32,16 +32,16 @@ public class MovementSystem {
             if(velocityComponent.movePercentage() > 0.5 && !velocityComponent.isMoveDoneOnPosition()) {
                 velocityComponent.moveDoneOnPosition();
                 switch (velocityComponent.getDirection()) {
-                    case 0:
+                    case RIGHT:
                         positionComponent.increaseX(1);
                         break;
-                    case 1:
+                    case UP:
                         positionComponent.increaseY(-1);
                         break;
-                    case 2:
+                    case LEFT:
                         positionComponent.increaseX(-1);
                         break;
-                    case 3:
+                    case DOWN:
                         positionComponent.increaseY(1);
                         break;
                     default:

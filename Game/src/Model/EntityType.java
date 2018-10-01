@@ -45,11 +45,11 @@ public enum EntityType {
         keyEventActionHashMap.put(KeyEvent.VK_D, Action.MOVE_RIGHT);
         keyEventActionHashMap.put(KeyEvent.VK_A, Action.MOVE_LEFT);
 
-        new DirectionComponent(ID, 0);
+        new DirectionComponent(ID, Direction.UP);
 
         new KeyActionComponent(ID, keyEventActionHashMap);
 
-        new VelocityComponent(ID, 1, 0, 10);
+        new VelocityComponent(ID, Direction.UP, 0, 1);
 
 
     }
@@ -65,7 +65,7 @@ public enum EntityType {
 
         new KeyActionComponent(ID, keyEventActionHashMap);
 
-        new VelocityComponent(ID, 1, 0, 1);
+        new VelocityComponent(ID, Direction.UP, 0, 1);
     }
 
 
@@ -79,6 +79,6 @@ public enum EntityType {
 
         new KeyActionComponent(ID, keyEventActionHashMap);
 
-        new VelocityComponent(ID, 1, 0, 300);
+        new VelocityComponent(ID, Direction.UP, 0, 300);
     }
 }

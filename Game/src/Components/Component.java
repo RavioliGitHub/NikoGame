@@ -10,9 +10,18 @@ import java.util.ArrayList;
  */
 public abstract class Component{
     static {
+        //Needs to happen before anything else happens
         initialiseSubclasses();
     }
 
+    /**
+     * All the different types components that exist
+     */
+    private static ArrayList<Class> subClasses;
+
+    /**
+     * Important, each new component need to be added here
+     */
     private static void initialiseSubclasses(){
         subClasses = new ArrayList<>();
         subClasses.add(DirectionComponent.class);
@@ -24,10 +33,6 @@ public abstract class Component{
         subClasses.add(VelocityComponent.class);
     }
 
-    /**
-     * All the different types components that exist and are used
-     */
-    private static ArrayList<Class> subClasses;
 
     /**
      * Ensures that they all are constructed with an ID and the correct component type
@@ -38,7 +43,7 @@ public abstract class Component{
         Game.getInstance().getComponentManager().registerComponent(ID, this, componentSubClass);
     }
 
-    public static ArrayList<Class> getSubClasses() {
+    static ArrayList<Class> getSubClasses() {
         return subClasses;
     }
 }

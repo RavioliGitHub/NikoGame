@@ -40,8 +40,8 @@ public class RenderingSystem extends JPanel {
                 int x = positionComponent.getX();
                 int y = positionComponent.getY();
 
-                int direction = 0;
-                int directionOfMov = 0;
+                Direction direction = Direction.LEFT;
+                Direction directionOfMov = Direction.LEFT;
                 double partOfMovement = 0;
                 boolean standing = true;
                 boolean movementSprite1 = true;
