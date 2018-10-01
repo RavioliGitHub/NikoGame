@@ -26,6 +26,13 @@ public class Mouse implements MouseListener {
         keyEventActionHashMap.put(KeyEvent.VK_S, Action.MOVE_DOWN);
         keyEventActionHashMap.put(KeyEvent.VK_D, Action.MOVE_RIGHT);
         keyEventActionHashMap.put(KeyEvent.VK_A, Action.MOVE_LEFT);
+        keyEventActionHashMap.put(KeyEvent.VK_Q, Action.MOVE_LEFT);
+        keyEventActionHashMap.put(KeyEvent.VK_Z, Action.MOVE_UP);
+        keyEventActionHashMap.put(KeyEvent.VK_UP, Action.MOVE_UP);
+        keyEventActionHashMap.put(KeyEvent.VK_DOWN, Action.MOVE_DOWN);
+        keyEventActionHashMap.put(KeyEvent.VK_CLEAR, Action.MOVE_DOWN);
+        keyEventActionHashMap.put(KeyEvent.VK_LEFT, Action.MOVE_LEFT);
+        keyEventActionHashMap.put(KeyEvent.VK_RIGHT, Action.MOVE_RIGHT);
 
         new KeyActionComponent(ID, keyEventActionHashMap);
 
