@@ -41,8 +41,9 @@ public class Drawing {
         g.clearRect(0,0,Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT);
     }
 
-    public static void drawTime(Graphics g){
-        g.setFont(new Font("TimesRoman", Font.BOLD, 32));
+    public static void drawTime(Graphics g, int x, int y){
+        g.setFont(new Font("TimesRoman", Font.BOLD, 26));
+        g.clearRect(x*48 + 1, (y-1)*48 + 1, 3*48 - 1, 1*48 - 1);
 
         LocalTime localTime = LocalTime.now();
         String hours = Integer.toString(localTime.getHour());
@@ -51,6 +52,6 @@ public class Drawing {
 
         String time = hours + " : " + minutes + " : " + seconds;
 
-        g.drawString(time, 30*48, 3*48);
+        g.drawString(time, x*48 + 3, y*48 - 10);
     }
 }

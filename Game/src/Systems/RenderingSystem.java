@@ -2,6 +2,7 @@ package Systems;
 
 import Components.*;
 import Controller.Keyboard;
+import Controller.Mouse;
 import Default.Game;
 import View.Drawing;
 import View.InGameImage;
@@ -16,10 +17,11 @@ import java.util.ArrayList;
  */
 public class RenderingSystem extends JPanel {
 
-    public RenderingSystem(Keyboard keyboard) {
+    public RenderingSystem(Keyboard keyboard, Mouse mouse) {
         this.setFocusable(true);
         this.requestFocusInWindow();
         this.addKeyListener(keyboard);
+        this.addMouseListener(mouse);
     }
 
     @Override
@@ -30,7 +32,7 @@ public class RenderingSystem extends JPanel {
         Drawing.drawBackground(g);
         Drawing.drawGrid(g);
         Drawing.drawCoordinatesOnEveryTile(g);
-        Drawing.drawTime(g);
+        Drawing.drawTime(g, 30, 3);
 
         for (int ID : entities){
             //If it has a graphic and a position

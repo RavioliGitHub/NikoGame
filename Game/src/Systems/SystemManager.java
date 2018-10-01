@@ -1,6 +1,7 @@
 package Systems;
 
 import Controller.Keyboard;
+import Controller.Mouse;
 
 import java.awt.event.KeyListener;
 
@@ -10,7 +11,7 @@ public class SystemManager {
     private MovementSystem movementSystem;
 
     public SystemManager(){
-        renderingSystem = new RenderingSystem(new Keyboard());
+        renderingSystem = new RenderingSystem(new Keyboard(), new Mouse());
         keyboardInputSystem = new KeyboardInputSystem();
         movementSystem = new MovementSystem();
     }
