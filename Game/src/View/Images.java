@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public enum Images implements ImageCompositeInterface {
+public enum Images implements InGameImage {
     PLAYER1("player1.png", new Direction[]{DOWN,LEFT,RIGHT, UP}, true),
     DARK_ENEMY("enemy.png"),
     THIEF("thiefenemy.png"),
@@ -118,7 +118,7 @@ public enum Images implements ImageCompositeInterface {
     }
 
     @Override
-    public ImageCompositeInterface cloneGraphic() {
+    public InGameImage cloneGraphic() {
         return this;
     }
 

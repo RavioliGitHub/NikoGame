@@ -5,6 +5,9 @@ import Components.DirectionComponent;
 import Components.VelocityComponent;
 import Default.Game;
 
+/**
+ * Different actions that can be executed, subject to change
+ */
 public enum Action {
     MOVE_UP{
         @Override
@@ -39,10 +42,17 @@ public enum Action {
 
     public abstract void execute(int ID);
 
+    /**
+     * Standard version in which the direction changed is also modified
+     * @param ID
+     * @param direction
+     */
     private static void move(int ID, Direction direction){
         VelocityComponent velocityComponent =
             (VelocityComponent) Game.getInstance().getComponentManager().getComponent(ID, VelocityComponent.class);
 
+        //Ensure that the player doesnt need to wait before starting the next move
+        //But also that he cant double moves, or cancel them
         if (velocityComponent.movePercentage() > 0.8) {
 
             velocityComponent.startMovement(direction, velocityComponent.getDefaultSpeedWhenMoving());

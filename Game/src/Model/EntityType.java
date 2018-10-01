@@ -9,6 +9,9 @@ import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Hashtable;
 
+/**
+ * Not actually needed, but simplifies life
+ */
 public enum EntityType {
     PLAYER1(Images.PLAYER1),
     DARK_ENEMY(Images.DARK_ENEMY),

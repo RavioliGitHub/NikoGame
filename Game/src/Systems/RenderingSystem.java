@@ -4,12 +4,16 @@ import Components.*;
 import Controller.Keyboard;
 import Default.Game;
 import View.Drawing;
-import View.Images;
+import View.InGameImage;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+
+/**
+ * Draws all on the screen
+ */
 public class RenderingSystem extends JPanel {
 
     public RenderingSystem(Keyboard keyboard) {
@@ -29,6 +33,7 @@ public class RenderingSystem extends JPanel {
         Drawing.drawTime(g);
 
         for (int ID : entities){
+            //If it has a graphic and a position
             if (componentManager.contains(ID, GraphicsComponent.class)&&
                 componentManager.contains(ID, PositionComponent.class)){
                 GraphicsComponent graphicsComponent =
@@ -36,10 +41,11 @@ public class RenderingSystem extends JPanel {
                 PositionComponent positionComponent =
                     (PositionComponent) componentManager.getComponent(ID, PositionComponent.class);
 
-                Images image = graphicsComponent.getImage();
+                InGameImage image = graphicsComponent.getImage();
                 int x = positionComponent.getX();
                 int y = positionComponent.getY();
 
+                //Standard values that will be replaced if others exists
                 Direction direction = Direction.LEFT;
                 Direction directionOfMov = Direction.LEFT;
                 double partOfMovement = 0;
@@ -61,7 +67,7 @@ public class RenderingSystem extends JPanel {
                         movementSprite1 = velocityComponent.isMoveAnimation1();
                         partOfMovement = velocityComponent.movePercentage();
                         moveDoneOnPosition = velocityComponent.isMoveDoneOnPosition();
-                        directionOfMov = velocityComponent.getDirection();
+                        directionOfMov = velocityComponent.getDirectionOfMovement();
                     }
                 }
                 image.drawMoving(g,direction, directionOfMov,standing, movementSprite1, partOfMovement, moveDoneOnPosition, x, y);

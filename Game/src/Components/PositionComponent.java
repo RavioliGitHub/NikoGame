@@ -1,5 +1,8 @@
 package Components;
 
+/**
+ * Tell where something is
+ */
 public class PositionComponent extends Component{
     private int x;
     private int y;
@@ -18,11 +21,20 @@ public class PositionComponent extends Component{
         return y;
     }
 
-    public void increaseX(int change){
-        x = x + change;
-    }
-
-    public void increaseY(int change){
-        y = y + change;
+    public void moveByOneTile(Direction direction){
+        switch (direction) {
+            case RIGHT:
+                x += 1;
+                break;
+            case UP:
+                y -= 1;
+                break;
+            case LEFT:
+                x -= 1;
+                break;
+            case DOWN:
+                y += 1;
+                break;
+        }
     }
 }

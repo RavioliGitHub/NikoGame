@@ -1,16 +1,38 @@
 package Components;
 
+/**
+ * Takes care of movement
+ */
 public class VelocityComponent extends Component{
-    private Direction direction;
+    /**
+     * Direction in which the movement is going
+     */
+    private Direction directionOfMovement;
+    /**
+     * Speed of the movement
+     */
     private double currentSpeed;
+    /**
+     * Speed that will be used if no particular speed is needed
+     * Eg, when walking, this will be used, could be double when running
+     */
     private double defaultSpeedWhenMoving;
+    /**
+     * used for animation, so for a human eg the left and right leg switch
+     */
     private boolean moveAnimation1;
+    /**
+     * When the move started (used for animation)
+     */
     private double moveStartTime;
+    /**
+     * Whether the move has already be done regarding the positionComponent
+     */
     private boolean moveDoneOnPosition;
 
-    public VelocityComponent(int ID, Direction direction, double currentSpeed, double defaultSpeedWhenMoving){
+    public VelocityComponent(int ID, Direction directionOfMovement, double currentSpeed, double defaultSpeedWhenMoving){
         super(ID, VelocityComponent.class);
-        this.direction = direction;
+        this.directionOfMovement = directionOfMovement;
         this.currentSpeed = currentSpeed;
         this.defaultSpeedWhenMoving = defaultSpeedWhenMoving;
         moveAnimation1 = true;
@@ -19,14 +41,18 @@ public class VelocityComponent extends Component{
     }
 
     public void startMovement(Direction direction, double currentSpeed) {
-        this.direction = direction;
+        this.directionOfMovement = direction;
         this.currentSpeed = currentSpeed;
         moveStartTime = System.nanoTime();
         moveDoneOnPosition = false;
+        moveAnimation1 = !moveAnimation1;
 
     }
 
     /**
+     * For animation:
+     * Tells how much of the move has already been done
+     *
      * Speed = tiles per second
      * time for one tile (in seconds) = 1/speed
      * time for one tile (in nanoseconds) = (10^9) / speed
@@ -55,12 +81,8 @@ public class VelocityComponent extends Component{
         return moveAnimation1;
     }
 
-    public void invertMoveAnimation1() {
-        moveAnimation1 = !moveAnimation1;
-    }
-
-    public Direction getDirection() {
-        return direction;
+    public Direction getDirectionOfMovement() {
+        return directionOfMovement;
     }
 
     public boolean isMoveDoneOnPosition() {

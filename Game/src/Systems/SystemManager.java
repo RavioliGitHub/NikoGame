@@ -2,8 +2,11 @@ package Systems;
 
 import Controller.Keyboard;
 
-import java.awt.event.KeyListener;
 
+/**
+ * See ECS for details
+ * Handles the order in which the systems update
+ */
 public class SystemManager {
     private RenderingSystem renderingSystem;
     private KeyboardInputSystem keyboardInputSystem;

@@ -9,8 +9,14 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * Link between the pressed keys and the action_keyMap
+ */
 public class KeyboardInputSystem {
 
+    /**
+     * See Readme for details on queue logic
+     */
     private Queue<KeyEvent> queue1;
     private Queue<KeyEvent> queue2;
 

@@ -6,6 +6,10 @@ package Components;
  */
 public class DirectionComponent extends Component {
 
+    /**
+     * The direction FACED, not the one moved to
+     * Relevant for sidesteps
+     */
     private Direction direction;
 
     public DirectionComponent(int ID, Direction direction) {

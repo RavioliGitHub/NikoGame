@@ -2,10 +2,25 @@ package Model;
 
 import java.util.ArrayList;
 
+/**
+ * See ECS System
+ *
+ * Mainly has a list of IDs, which represent the  entities
+ */
 public class EntityManager {
+    /**
+     * Next available ID
+     */
     private int ID;
 
+    /**
+     * Currently existing entities
+     */
     private ArrayList<Integer> entities;
+
+    /**
+     * Name of the entities, only exists for debugging purposes
+     */
     private ArrayList<String> names;
 
     public EntityManager(){
@@ -16,10 +31,7 @@ public class EntityManager {
 
 
     public int createEntity(){
-        ID++;
-        entities.add(ID);
-        names.add("default");
-        return ID;
+        return createEntity("default");
     }
 
     public int createEntity(String name){
