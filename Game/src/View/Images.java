@@ -6,6 +6,7 @@ import static Components.Direction.*;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 public enum Images implements InGameImage {
@@ -55,9 +56,10 @@ public enum Images implements InGameImage {
 
     private BufferedImage getBufferedImageFromFileName(String fileName){
         try {
-            return ImageIO.read(Images.class.getResource("/textures/" + fileName));
+            return ImageIO.read(new File("Game/res/textures/" + fileName));
         } catch (IOException e) {
             System.out.println("Filename " + fileName);
+            System.out.println("CWD:" + System.getProperty("user.dir"));
             e.printStackTrace();
         }
         throw new RuntimeException("Image could not be loaded");
