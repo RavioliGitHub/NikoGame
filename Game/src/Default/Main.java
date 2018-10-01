@@ -1,12 +1,20 @@
 package Default;
+import View.Window;
 
-import java.awt.im.*;
-import java.awt.im.InputContext;
+/**
+ * Main class
+ * Currently only opens the window and starts the game loop
+ *
+ * Future plans, integrate a menu so you can switch between games
+ */
 
 public class Main {
     public static void main(String[] args){
-        Game.createInstance().gameLoop();
-        InputContext context = InputContext.getInstance();
-        System.out.println(context.getLocale().toString());
+
+        //Opens the window
+        new Window(Game.createInstance().getSystemManager().getRenderingSystem());
+        //Starts the game loop
+        Game.getInstance().gameLoop();
+
     }
 }

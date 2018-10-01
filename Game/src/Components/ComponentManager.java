@@ -2,69 +2,43 @@ package Components;
 
 import java.util.HashMap;
 
-import static Components.ComponentTypes.*;
-
 public class ComponentManager {
 
-    private HashMap<Integer, GraphicsComponent> graphicsComponents;
-    private HashMap<Integer, InputComponent> inputComponents;
-    private HashMap<Integer, PhysicsComponent> physicsComponents;
-    private HashMap<Integer, PositionComponent> positionComponents;
-    private HashMap<Integer, VelocityComponent> velocityComponents;
-    private HashMap<Integer, KeyActionComponent> keyActionComponents;
-    private HashMap<Integer, DirectionComponent> directionComponents;
-
-    private HashMap<ComponentTypes, HashMap> componentTypeTable;
+    private HashMap<Class, HashMap<Integer, Component>> class_ID_ComponentHashMap;
 
     public ComponentManager(){
-
-        graphicsComponents = new HashMap<>();
-        inputComponents = new HashMap<>();
-        physicsComponents = new HashMap<>();
-        positionComponents = new HashMap<>();
-        velocityComponents = new HashMap<>();
-        keyActionComponents = new HashMap<>();
-        directionComponents = new HashMap<>();
-
-        componentTypeTable = new HashMap<>();
-
-        initialiseClassTableTable();
+        class_ID_ComponentHashMap = new HashMap<>();
+        for(Class componentSubClass : Component.getSubClasses()){
+            class_ID_ComponentHashMap.put(componentSubClass, new HashMap<>());
+        }
     }
 
-    public void initialiseClassTableTable(){
-        componentTypeTable.put(GRAPHICS, graphicsComponents);
-        componentTypeTable.put(INPUT, inputComponents);
-        componentTypeTable.put(PHYSICS, physicsComponents);
-        componentTypeTable.put(POSITION, positionComponents);
-        componentTypeTable.put(VELOCITY, velocityComponents);
-        componentTypeTable.put(KEY_ACTION_MAP, keyActionComponents);
-        componentTypeTable.put(DIRECTION, directionComponents);
-    }
-
-    public void registerComponent(int ID, Component component, ComponentTypes componentType){
-        HashMap typeMap = componentTypeTable.get(componentType);
+    public void registerComponent(int ID, Component component, Class componentSubClass){
+        assert componentSubClass.getSuperclass() == Component.class;
+        HashMap typeMap = class_ID_ComponentHashMap.get(componentSubClass);
         typeMap.put(ID, component);
     }
 
-    public Component getComponent(int ID, ComponentTypes componentType){
-        HashMap typeMap = componentTypeTable.get(componentType);
+    public Component getComponent(int ID, Class componentSubClass){
+        assert componentSubClass.getSuperclass() == Component.class;
+        HashMap typeMap = class_ID_ComponentHashMap.get(componentSubClass);
         Component component = (Component) typeMap.get(ID);
         return component;
     }
 
-    public HashMap getComponentMap(ComponentTypes componentType){
-        HashMap typeMap = componentTypeTable.get(componentType);
+    public HashMap getComponentMap(Class componentSubClass){
+        HashMap typeMap = class_ID_ComponentHashMap.get(componentSubClass);
         return typeMap;
     }
 
-    public boolean contains(int ID, ComponentTypes componentType){
-        HashMap typeMap = componentTypeTable.get(componentType);
+    public boolean contains(int ID, Class componentSubClass){
+        HashMap typeMap = class_ID_ComponentHashMap.get(componentSubClass);
         boolean contained = typeMap.containsKey(ID);
         return contained;
     }
 
     public void deleteAllComponentsWithID(int ID){
-        componentTypeTable.forEach((componentType, componentTable) -> {
+        class_ID_ComponentHashMap.forEach((componentType, componentTable) -> {
             componentTable.remove(ID);
         });
     }

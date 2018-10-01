@@ -1,7 +1,6 @@
 package Systems;
 
 import Components.ComponentManager;
-import Components.ComponentTypes;
 import Components.PositionComponent;
 import Components.VelocityComponent;
 import Default.Game;
@@ -15,10 +14,10 @@ public class MovementSystem {
         ComponentManager componentManager = Game.getInstance().getComponentManager();
 
         HashMap<Integer, VelocityComponent> entityVelocityMap =
-            componentManager.getComponentMap(ComponentTypes.VELOCITY);
+            componentManager.getComponentMap(VelocityComponent.class);
 
         HashMap<Integer, PositionComponent> entityPositionMap =
-            componentManager.getComponentMap(ComponentTypes.POSITION);
+            componentManager.getComponentMap(PositionComponent.class);
 
         entityVelocityMap.forEach((ID, velocityComponent) -> {
             if(entityPositionMap.containsKey(ID)){

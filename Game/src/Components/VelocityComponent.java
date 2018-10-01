@@ -9,7 +9,7 @@ public class VelocityComponent extends Component{
     private boolean moveDoneOnPosition;
 
     public VelocityComponent(int ID, int direction, double currentSpeed, double maxSpeed){
-        super(ID, ComponentTypes.VELOCITY);
+        super(ID, VelocityComponent.class);
         this.direction = direction;
         this.currentSpeed = currentSpeed;
         this.maxSpeed = maxSpeed;

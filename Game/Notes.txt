@@ -9,8 +9,6 @@ Singleton : think twice before using
 Component
 
 
-
-
 Game Loop - aim for 60 fps
 while (true) /Loop option 1, 16 milli per tick
 {
@@ -22,14 +20,18 @@ while (true) /Loop option 1, 16 milli per tick
   sleep(start + MS_PER_FRAME - getCurrentTime());
 }
 
-Classes
-GameObject
--int x, int y, position
--ID
+What defines a game ?
+-EntityTypes
+-Actions
+-Images
+-Entity List
+-Component List
 
-Components
--InputComponent
--PlayerInputComponent
--Physics
--Graphics
--Audio
+window = new Window(systemManager.getRenderingSystem());
+JFrame window = new JFrame("Game");
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+        window.getContentPane().setBackground(Color.gray);
+        window.getContentPane().add(renderingSystem);
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);

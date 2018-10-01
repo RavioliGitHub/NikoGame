@@ -4,11 +4,9 @@ import Components.ComponentManager;
 import Model.EntityManager;
 import Model.EntityType;
 import Systems.SystemManager;
-import View.Window;
 
 public class Game {
 
-    private Window window;
     private EntityManager entityManager;
     private ComponentManager componentManager;
     private SystemManager systemManager;
@@ -35,8 +33,6 @@ public class Game {
         entityManager = new EntityManager();
         componentManager = new ComponentManager();
         systemManager = new SystemManager();
-
-        window = new Window(systemManager.getRenderingSystem());
 
         player1 = EntityType.PLAYER1.create(10,10);
 

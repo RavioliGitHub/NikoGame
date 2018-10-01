@@ -8,18 +8,18 @@ import java.awt.event.KeyListener;
 
 import javax.swing.*;
 
-public class Window {
+public class Window extends JFrame{
 
     public static final int WINDOW_WIDTH = 1920;
     public static final int WINDOW_HEIGHT = 1080;
 
     public Window(RenderingSystem renderingSystem) {
-        JFrame window = new JFrame("Game");
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-        window.getContentPane().setBackground(Color.gray);
-        window.getContentPane().add(renderingSystem);
-        window.setLocationRelativeTo(null);
-        window.setVisible(true);
+        super("Game");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+        getContentPane().setBackground(Color.gray);
+        getContentPane().add(renderingSystem);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 }

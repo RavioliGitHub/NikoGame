@@ -1,6 +1,5 @@
 package Systems;
 
-import Components.ComponentTypes;
 import Components.KeyActionComponent;
 import Controller.Action;
 import Default.Game;
@@ -32,7 +31,7 @@ public class KeyboardInputSystem {
     private void reactToKey(KeyEvent keyEvent){
         int keyEventCode = keyEvent.getKeyCode();
         HashMap<Integer, KeyActionComponent> entityKeyMap =
-            Game.getInstance().getComponentManager().getComponentMap(ComponentTypes.KEY_ACTION_MAP);
+            Game.getInstance().getComponentManager().getComponentMap(KeyActionComponent.class);
 
         entityKeyMap.forEach((ID, keyActionComponent) -> {
             if (keyActionComponent.contains(keyEventCode)){

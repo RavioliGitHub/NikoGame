@@ -1,9 +1,7 @@
 package Components;
 
 public class InputComponent extends Component{
-
-
-    public InputComponent(int ID, ComponentTypes componentType) {
-        super(ID, componentType);
+    public InputComponent(int ID, Class componentSubClass) {
+        super(ID, componentSubClass);
     }
 }

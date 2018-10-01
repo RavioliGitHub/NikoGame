@@ -5,7 +5,7 @@ public class PositionComponent extends Component{
     private int y;
 
     public PositionComponent(int ID, int x, int y){
-        super(ID, ComponentTypes.POSITION);
+        super(ID, PositionComponent.class);
         this.x = x;
         this.y = y;
     }

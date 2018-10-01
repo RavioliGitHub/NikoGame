@@ -8,7 +8,7 @@ public class KeyActionComponent extends Component{
     private HashMap<Integer, Action> keyActionMap;
 
     public KeyActionComponent(int ID, HashMap<Integer, Action> keyActionMap) {
-        super(ID, ComponentTypes.KEY_ACTION_MAP);
+        super(ID, KeyActionComponent.class);
         this.keyActionMap = keyActionMap;
     }
 

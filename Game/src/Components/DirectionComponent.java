@@ -10,7 +10,7 @@ public class DirectionComponent extends Component {
     private int direction;
 
     public DirectionComponent(int ID, int direction) {
-        super(ID, ComponentTypes.DIRECTION);
+        super(ID, DirectionComponent.class);
         this.direction = direction;
         assert direction <= 3 && direction >= 0;
     }

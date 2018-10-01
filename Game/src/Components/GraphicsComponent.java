@@ -9,7 +9,7 @@ public class GraphicsComponent extends Component {
     private Images image;
 
     public GraphicsComponent(int ID, Images image){
-        super(ID, ComponentTypes.GRAPHICS);
+        super(ID, GraphicsComponent.class);
         this.image = image;
     }
 

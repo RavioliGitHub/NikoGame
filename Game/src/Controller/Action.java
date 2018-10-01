@@ -1,6 +1,5 @@
 package Controller;
 
-import Components.ComponentTypes;
 import Components.DirectionComponent;
 import Components.VelocityComponent;
 import Default.Game;
@@ -41,15 +40,15 @@ public enum Action {
 
     private static void move(int ID, int direction){
         VelocityComponent velocityComponent =
-            (VelocityComponent) Game.getInstance().getComponentManager().getComponent(ID, ComponentTypes.VELOCITY);
+            (VelocityComponent) Game.getInstance().getComponentManager().getComponent(ID, VelocityComponent.class);
 
         if (velocityComponent.movePercentage() > 0.8) {
 
             velocityComponent.startMovement(direction, velocityComponent.getMaxSpeed());
 
-            if (Game.getInstance().getComponentManager().contains(ID, ComponentTypes.DIRECTION)) {
+            if (Game.getInstance().getComponentManager().contains(ID, DirectionComponent.class)) {
                 DirectionComponent directionComponent =
-                    (DirectionComponent) Game.getInstance().getComponentManager().getComponent(ID, ComponentTypes.DIRECTION);
+                    (DirectionComponent) Game.getInstance().getComponentManager().getComponent(ID, DirectionComponent.class);
                 directionComponent.setDirection(direction);
             }
         }
