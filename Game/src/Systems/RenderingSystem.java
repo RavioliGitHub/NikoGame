@@ -35,6 +35,7 @@ public class RenderingSystem extends JPanel {
         Drawing.drawCoordinatesOnEveryTile(g);
         Drawing.drawTime(g, 30, 3);
         Drawing.drawFPS(g, 30, 5);
+        System.out.println(entities.size());
 
         for (int ID : entities){
             //If it has a graphic and a position
