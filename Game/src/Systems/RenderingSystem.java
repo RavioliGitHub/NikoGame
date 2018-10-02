@@ -22,6 +22,7 @@ public class RenderingSystem extends JPanel {
         this.requestFocusInWindow();
         this.addKeyListener(keyboard);
         this.addMouseListener(mouse);
+        this.addMouseMotionListener(mouse);
     }
 
     @Override
@@ -33,6 +34,7 @@ public class RenderingSystem extends JPanel {
         Drawing.drawGrid(g);
         Drawing.drawCoordinatesOnEveryTile(g);
         Drawing.drawTime(g, 30, 3);
+        Drawing.drawFPS(g, 30, 5);
 
         for (int ID : entities){
             //If it has a graphic and a position

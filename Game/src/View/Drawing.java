@@ -1,5 +1,7 @@
 package View;
 
+import Default.Game;
+
 import java.awt.*;
 import java.time.LocalTime;
 
@@ -52,6 +54,15 @@ public class Drawing {
 
         String time = hours + " : " + minutes + " : " + seconds;
 
-        g.drawString(time, x*48 + 3, y*48 - 10);
+        g.drawString(time, x*48 + 5, y*48 - 10);
+    }
+
+    public static void drawFPS(Graphics g, int x, int y){
+        g.setFont(new Font("TimesRoman", Font.BOLD, 26));
+        g.clearRect(x*48 + 1, (y-1)*48 + 1, 2*48 - 1, 1*48 - 1);
+
+        String FPS = Integer.toString(Game.getFPS()) +  " FPS";
+
+        g.drawString(FPS, x*48 + 5, y*48 - 10);
     }
 }

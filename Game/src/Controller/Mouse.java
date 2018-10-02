@@ -1,61 +1,51 @@
 package Controller;
 
-import Components.*;
-import Default.Game;
 import Model.EntityType;
-import View.Images;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.HashMap;
+import java.awt.event.*;
 
-public class Mouse implements MouseListener {
+public class Mouse implements MouseListener, MouseMotionListener, MouseWheelListener {
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println(e.getX() + " " + e.getY());
-
-        int x = (int)((double)e.getX()/48.0);
-        int y = (int)((double)e.getY()/48.0);
-        int ID = Game.getInstance().getEntityManager().createEntity("mousClicLocation");
-        new PositionComponent(ID, x, y);
-        new GraphicsComponent(ID, Images.DARK_ENEMY);
-
-        HashMap<Integer, Action> keyEventActionHashMap = new HashMap<>();
-        keyEventActionHashMap.put(KeyEvent.VK_W, Action.MOVE_UP);
-        keyEventActionHashMap.put(KeyEvent.VK_S, Action.MOVE_DOWN);
-        keyEventActionHashMap.put(KeyEvent.VK_D, Action.MOVE_RIGHT);
-        keyEventActionHashMap.put(KeyEvent.VK_A, Action.MOVE_LEFT);
-        keyEventActionHashMap.put(KeyEvent.VK_Q, Action.MOVE_LEFT);
-        keyEventActionHashMap.put(KeyEvent.VK_Z, Action.MOVE_UP);
-        keyEventActionHashMap.put(KeyEvent.VK_UP, Action.MOVE_UP);
-        keyEventActionHashMap.put(KeyEvent.VK_DOWN, Action.MOVE_DOWN);
-        keyEventActionHashMap.put(KeyEvent.VK_CLEAR, Action.MOVE_DOWN);
-        keyEventActionHashMap.put(KeyEvent.VK_LEFT, Action.MOVE_LEFT);
-        keyEventActionHashMap.put(KeyEvent.VK_RIGHT, Action.MOVE_RIGHT);
-
-        new KeyActionComponent(ID, keyEventActionHashMap);
-
-        new VelocityComponent(ID, Direction.UP, 0, 2);
+        System.out.println(e);
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        System.out.println(e);
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        System.out.println(e);
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-
+        System.out.println(e);
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
+        System.out.println(e);
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        System.out.println(e);
+        EntityType.BREAKABLE_BLOCK.create((int)((double)e.getX()/48.0),(int)((double)e.getY()/48.0));
+
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        System.out.println(e);
+        //EntityType.BREAKABLE_BLOCK.create((int)((double)e.getX()/48.0),(int)((double)e.getY()/48.0));
+
+    }
+
+    @Override
+    public void mouseWheelMoved(MouseWheelEvent e) {
 
     }
 }

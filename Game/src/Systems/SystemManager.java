@@ -3,8 +3,6 @@ package Systems;
 import Controller.Keyboard;
 import Controller.Mouse;
 
-import java.awt.event.KeyListener;
-
 public class SystemManager {
     private RenderingSystem renderingSystem;
     private KeyboardInputSystem keyboardInputSystem;

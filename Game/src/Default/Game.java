@@ -13,6 +13,8 @@ public class Game {
     private boolean running;
     private int player1;
 
+    private static int FPS;
+
     private static Game instance;
 
 
@@ -53,7 +55,21 @@ public class Game {
 
      public void gameLoop(){
          testPreLoop();
+         //initialisation value to avoid bugs on the first FPS calculation
+         double startTime = System.currentTimeMillis()-1000;
         while(running){
+
+            /*
+            Part that calculates FPS
+            */
+            double loopTime = System.currentTimeMillis() - startTime;
+            startTime = System.currentTimeMillis();
+            FPS = (int)(1000.0/loopTime);
+            //Approximation so the FPS doesnt flicker too much
+            if(FPS >= 57 && FPS <= 63){FPS = 60;}
+            /*
+            End of FPS part
+             */
             systemManager.update();
 
             try {
@@ -107,5 +123,7 @@ public class Game {
         return systemManager;
     }
 
-
+    public static int getFPS() {
+        return FPS;
+    }
 }

@@ -1,11 +1,8 @@
 package View;
 
-import Default.Game;
 import Systems.RenderingSystem;
 
-import java.awt.Color;
-import java.awt.event.KeyListener;
-
+import java.awt.*;
 import javax.swing.*;
 
 public class Window extends JFrame{
