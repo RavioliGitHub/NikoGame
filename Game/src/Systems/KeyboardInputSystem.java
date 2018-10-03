@@ -14,28 +14,20 @@ import java.util.Queue;
  */
 public class KeyboardInputSystem {
 
-    /**
-     * See Readme for details on queue logic
-     */
-    private Queue<KeyEvent> queue1;
-    private Queue<KeyEvent> queue2;
+
+    private LinkedList<Integer> pressedKeys;
 
     public KeyboardInputSystem(){
-        queue1 = new LinkedList<>();
-        queue2 = new LinkedList<>();
+        pressedKeys = new LinkedList<>();
     }
 
     public void update(){
-        KeyEvent keyEvent1 = queue1.poll();
-        KeyEvent keyEvent2 = queue2.poll();
-
-        if(keyEvent1 != null){
-            reactToKey(keyEvent1);}
-        if(keyEvent2 != null){reactToKey(keyEvent2);}
+        for(Integer keyCode : pressedKeys){
+            reactToKey(keyCode);
+        }
     }
 
-    private void reactToKey(KeyEvent keyEvent){
-        int keyEventCode = keyEvent.getKeyCode();
+    private void reactToKey(int keyEventCode){
         HashMap<Integer, KeyActionComponent> entityKeyMap =
             Game.getInstance().getComponentManager().getComponentMap(KeyActionComponent.class);
 
@@ -48,11 +40,13 @@ public class KeyboardInputSystem {
 
     }
 
-    public void addToQueue1(KeyEvent keyEvent) {
-        queue1.add(keyEvent);
+    public void addToPressedKeys(KeyEvent keyEvent) {
+        if (! pressedKeys.contains(keyEvent.getKeyCode())){
+            pressedKeys.add(keyEvent.getKeyCode());
+        }
     }
 
-    public void addToQueue2(KeyEvent keyEvent) {
-        queue2.add(keyEvent);
+    public void removeFromPressedKeys(KeyEvent keyEvent){
+        pressedKeys.remove((Integer) keyEvent.getKeyCode());
     }
 }

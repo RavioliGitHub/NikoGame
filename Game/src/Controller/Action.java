@@ -53,7 +53,7 @@ public enum Action {
 
         //Ensure that the player doesnt need to wait before starting the next move
         //But also that he cant double moves, or cancel them
-        if (velocityComponent.movePercentage() > 0.8) {
+        if (velocityComponent.movePercentage() >= 1) {
 
             velocityComponent.startMovement(direction, velocityComponent.getDefaultSpeedWhenMoving());
 

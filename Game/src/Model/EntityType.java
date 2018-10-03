@@ -68,7 +68,7 @@ public enum EntityType {
 
         new KeyActionComponent(ID, keyEventActionHashMap);
 
-        new VelocityComponent(ID, Direction.UP, 0, 10);
+        new VelocityComponent(ID, Direction.UP, 0, 1);
     }
 
 
@@ -82,6 +82,6 @@ public enum EntityType {
 
         new KeyActionComponent(ID, keyEventActionHashMap);
 
-        new VelocityComponent(ID, Direction.UP, 0, 10);
+        new VelocityComponent(ID, Direction.UP, 0, 5);
     }
 }

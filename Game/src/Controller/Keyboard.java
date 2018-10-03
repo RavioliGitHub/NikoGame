@@ -9,35 +9,22 @@ import java.awt.event.KeyListener;
 public class Keyboard implements KeyListener {
 
 
+
     public Keyboard(){
     }
 
     @Override
     public void keyPressed(KeyEvent event) {
-        int key = event.getKeyCode();
-        switch (key) {
-            case KeyEvent.VK_UP:
-            case KeyEvent.VK_DOWN:
-            case KeyEvent.VK_CLEAR:
-            case KeyEvent.VK_LEFT:
-            case KeyEvent.VK_RIGHT:
-            case KeyEvent.VK_ENTER:
-                Game.getInstance().getSystemManager().getKeyboardInputSystem().addToQueue1(event);
-                break;
-
-            default:
-                Game.getInstance().getSystemManager().getKeyboardInputSystem().addToQueue2(event);
-                break;
-        }
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
+        Game.getInstance().getSystemManager().getKeyboardInputSystem().addToPressedKeys(event);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+        Game.getInstance().getSystemManager().getKeyboardInputSystem().removeFromPressedKeys(e);
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
 
     }
 }

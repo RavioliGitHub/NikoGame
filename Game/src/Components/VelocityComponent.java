@@ -46,7 +46,6 @@ public class VelocityComponent extends Component{
         moveStartTime = System.nanoTime();
         moveDoneOnPosition = false;
         moveAnimation1 = !moveAnimation1;
-
     }
 
     /**
