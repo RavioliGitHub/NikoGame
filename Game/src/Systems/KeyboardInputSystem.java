@@ -7,7 +7,6 @@ import Default.Game;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * Link between the pressed keys and the action_keyMap

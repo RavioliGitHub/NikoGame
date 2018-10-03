@@ -37,4 +37,11 @@ public class PositionComponent extends Component{
                 break;
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj.getClass() != PositionComponent.class && obj.getClass() != Component.class) {return false;}
+
+        return ((PositionComponent)obj).x == x && ((PositionComponent)obj).y == y;
+    }
 }

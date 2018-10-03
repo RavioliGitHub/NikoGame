@@ -31,6 +31,7 @@ public abstract class Component{
         subClasses.add(PhysicsComponent.class);
         subClasses.add(PositionComponent.class);
         subClasses.add(VelocityComponent.class);
+        subClasses.add(QuickFixComponent.class);
     }
 
 
