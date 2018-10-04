@@ -100,13 +100,16 @@ public class MovementSystem {
         HashMap<Integer, QuickFixComponent> quickFixComponentMap =
             componentManager.getComponentMap(QuickFixComponent.class);
 
+        HashMap<Integer, VelocityComponent> entityVelocityMap =
+            componentManager.getComponentMap(VelocityComponent.class);
+
 
         //Move it to see where it will be
         positionComponent.moveByOneTile(velocityComponent.getDirectionOfMovement());
         entityPositionMap.forEach((loopID, loopPositionComponent) -> {
             if(loopPositionComponent.equals(positionComponent) && loopID != ID){
-                if(quickFixComponentMap.containsKey(ID)){
-                    QuickFixComponent otherQuickFixComponent = quickFixComponentMap.get(ID);
+                if(quickFixComponentMap.containsKey(loopID)){
+                    QuickFixComponent otherQuickFixComponent = quickFixComponentMap.get(loopID);
                     if (!otherQuickFixComponent.isCrossable()){
                         canCross.set(false);
                         return;

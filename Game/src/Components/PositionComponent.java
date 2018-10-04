@@ -21,6 +21,14 @@ public class PositionComponent extends Component{
         return y;
     }
 
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
     public void moveByOneTile(Direction direction){
         switch (direction) {
             case RIGHT:

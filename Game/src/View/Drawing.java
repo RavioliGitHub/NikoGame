@@ -1,9 +1,11 @@
 package View;
 
 import Default.Game;
+import Default.Util;
 
 import java.awt.*;
 import java.time.LocalTime;
+import java.util.LinkedList;
 
 public class Drawing {
     public static void drawGrid(Graphics g){
@@ -64,5 +66,14 @@ public class Drawing {
         String FPS = Integer.toString(Game.getFPS()) +  " FPS";
 
         g.drawString(FPS, x*48 + 5, y*48 - 10);
+    }
+
+    public static void drawOutput(Graphics g, int x, int y){
+        LinkedList<String> output = Util.getOutput();
+        g.setFont(new Font("default", Font.BOLD, 28));
+
+        for (int i = 0; i < Math.min(20, output.size()); i++){
+            g.drawString(output.get(output.size()-1-i), x*48, (y+i)*48);
+        }
     }
 }

@@ -56,6 +56,7 @@ public enum EntityType {
 
         QuickFixComponent quickFixComponent = new QuickFixComponent(ID);
         quickFixComponent.setCrossable(false);
+        quickFixComponent.setDraggable(true);
 
     }
 
@@ -74,6 +75,7 @@ public enum EntityType {
 
         QuickFixComponent quickFixComponent = new QuickFixComponent(ID);
         quickFixComponent.setCrossable(false);
+        quickFixComponent.setDraggable(true);
     }
 
 
@@ -91,5 +93,6 @@ public enum EntityType {
 
         QuickFixComponent quickFixComponent = new QuickFixComponent(ID);
         quickFixComponent.setCrossable(false);
+        quickFixComponent.setDraggable(false);
     }
 }
