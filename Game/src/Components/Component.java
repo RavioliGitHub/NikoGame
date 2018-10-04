@@ -26,9 +26,7 @@ public abstract class Component{
         subClasses = new ArrayList<>();
         subClasses.add(DirectionComponent.class);
         subClasses.add(GraphicsComponent.class);
-        subClasses.add(InputComponent.class);
         subClasses.add(KeyActionComponent.class);
-        subClasses.add(PhysicsComponent.class);
         subClasses.add(PositionComponent.class);
         subClasses.add(VelocityComponent.class);
         subClasses.add(QuickFixComponent.class);

@@ -54,6 +54,8 @@ public enum EntityType {
 
         new VelocityComponent(ID, Direction.UP, 0, 10);
 
+        QuickFixComponent quickFixComponent = new QuickFixComponent(ID);
+        quickFixComponent.setCrossable(false);
 
     }
 
@@ -69,6 +71,9 @@ public enum EntityType {
         new KeyActionComponent(ID, keyEventActionHashMap);
 
         new VelocityComponent(ID, Direction.UP, 0, 1);
+
+        QuickFixComponent quickFixComponent = new QuickFixComponent(ID);
+        quickFixComponent.setCrossable(false);
     }
 
 
@@ -83,5 +88,8 @@ public enum EntityType {
         new KeyActionComponent(ID, keyEventActionHashMap);
 
         new VelocityComponent(ID, Direction.UP, 0, 5);
+
+        QuickFixComponent quickFixComponent = new QuickFixComponent(ID);
+        quickFixComponent.setCrossable(false);
     }
 }

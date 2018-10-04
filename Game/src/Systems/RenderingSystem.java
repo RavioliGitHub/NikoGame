@@ -9,6 +9,7 @@ import View.InGameImage;
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -36,7 +37,7 @@ public class RenderingSystem extends JPanel {
         Drawing.drawTime(g, 30, 3);
         Drawing.drawFPS(g, 30, 5);
 
-        for (int ID : entities){
+        for (int ID : (ArrayList<Integer>)entities.clone()){
             //If it has a graphic and a position
             if (componentManager.contains(ID, GraphicsComponent.class)&&
                 componentManager.contains(ID, PositionComponent.class)){

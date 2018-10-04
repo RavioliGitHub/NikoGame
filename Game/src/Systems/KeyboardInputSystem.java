@@ -21,7 +21,7 @@ public class KeyboardInputSystem {
     }
 
     public void update(){
-        for(Integer keyCode : pressedKeys){
+        for(Integer keyCode : (LinkedList<Integer>)pressedKeys.clone()){
             reactToKey(keyCode);
         }
     }
