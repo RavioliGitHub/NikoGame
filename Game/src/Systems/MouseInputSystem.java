@@ -5,6 +5,7 @@ import Components.PositionComponent;
 import Components.QuickFixComponent;
 import Components.VelocityComponent;
 import Default.Game;
+import Default.Util;
 import Model.EntityType;
 
 import java.awt.event.MouseEvent;
@@ -22,8 +23,8 @@ public class MouseInputSystem {
     private PositionComponent mousePosition;
 
     PositionComponent dragged = null;
-    int previousX = 0;
-    int previousY = 0;
+    int previousX = 100;
+    int previousY = 100;
 
     public MouseInputSystem(){
         pressedButtons = new LinkedList<>();
@@ -43,7 +44,6 @@ public class MouseInputSystem {
         setMousePositionToEventPosition(mouseEvent);
         switch (mouseEvent.getID()){
             case MOUSE_PRESSED:
-                System.out.println(mouseEvent.getButton());
                 if(!pressedButtons.contains(mouseEvent.getButton())){
                     pressedButtons.add(mouseEvent.getButton());
                 }
@@ -57,7 +57,7 @@ public class MouseInputSystem {
             case MOUSE_MOVED:
                 break;
             case MOUSE_DRAGGED:
-                reactToMouseDragged(mouseEvent);
+                reactToMouseDragged();
                 break;
             case MOUSE_WHEEL:
                 break;
@@ -70,13 +70,24 @@ public class MouseInputSystem {
         }
     }
 
-    private void reactToMouseDragged(MouseEvent mouseEvent){
-        System.out.println(mouseEvent.getButton());
-        if (dragged == null) {
-            attemptToFindDraggable();
-        } else {
-            dragged.setX(mousePosition.getX());
-            dragged.setY(mousePosition.getY());
+    private void reactToMouseDragged() {
+        int x = mousePosition.getX();
+        int y = mousePosition.getY();
+
+        if (pressedButtons.contains(BUTTON1)) {
+            if (dragged == null) {
+                attemptToFindDraggable();
+            } else {
+                dragged.setX(x);
+                dragged.setY(y);
+            }
+        }
+        if (pressedButtons.contains(BUTTON3)){
+            if (! (previousX == x && previousY == y)) {
+                EntityType.UNBREAKABLE_BLOCK.walkingWallCreation(x, y);
+                previousX = x;
+                previousY = y;
+            }
         }
     }
 

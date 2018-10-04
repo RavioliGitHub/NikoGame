@@ -34,9 +34,11 @@ public class RenderingSystem extends JPanel {
         Drawing.drawBackground(g);
         Drawing.drawGrid(g);
         Drawing.drawCoordinatesOnEveryTile(g);
-        Drawing.drawTime(g, 30, 3);
+        Drawing.drawTime(g);
         Drawing.drawFPS(g, 30, 5);
-        Drawing.drawOutput(g, 30, 7);
+        Drawing.drawOutput(1, g, 30, 7);
+        Drawing.drawOutput(2, g, 25, 7);
+        Drawing.drawOutput(3, g, 20, 7);
 
         for (int ID : (ArrayList<Integer>)entities.clone()){
             //If it has a graphic and a position

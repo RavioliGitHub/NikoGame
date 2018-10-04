@@ -1,6 +1,8 @@
 package View;
 
 import Components.Direction;
+import Default.Util;
+
 import static Components.Direction.*;
 
 import javax.imageio.ImageIO;
@@ -58,8 +60,8 @@ public enum Images implements InGameImage {
         try {
             return ImageIO.read(new File("Game/res/textures/" + fileName));
         } catch (IOException e) {
-            System.out.println("Filename " + fileName);
-            System.out.println("CWD:" + System.getProperty("user.dir"));
+            Util.println("Filename " + fileName);
+            Util.println("CWD:" + System.getProperty("user.dir"));
             e.printStackTrace();
         }
         throw new RuntimeException("Image could not be loaded");

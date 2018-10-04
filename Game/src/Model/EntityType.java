@@ -95,4 +95,22 @@ public enum EntityType {
         quickFixComponent.setCrossable(false);
         quickFixComponent.setDraggable(false);
     }
+
+    public void walkingWallCreation(int x,int y){
+        int ID = this.create(x,y);
+        HashMap<Integer, Action> keyEventActionHashMap = new HashMap<>();
+
+        keyEventActionHashMap.put(KeyEvent.VK_UP, Action.MOVE_UP);
+        keyEventActionHashMap.put(KeyEvent.VK_DOWN, Action.MOVE_DOWN);
+        keyEventActionHashMap.put(KeyEvent.VK_CLEAR, Action.MOVE_DOWN);
+        keyEventActionHashMap.put(KeyEvent.VK_RIGHT, Action.MOVE_RIGHT);
+        keyEventActionHashMap.put(KeyEvent.VK_LEFT, Action.MOVE_LEFT);
+        new KeyActionComponent(ID, keyEventActionHashMap);
+
+        new VelocityComponent(ID, Direction.UP, 0, 5);
+
+        QuickFixComponent quickFixComponent = new QuickFixComponent(ID);
+        quickFixComponent.setCrossable(false);
+        quickFixComponent.setDraggable(true);
+    }
 }
