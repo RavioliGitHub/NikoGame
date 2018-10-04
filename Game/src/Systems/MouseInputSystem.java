@@ -17,8 +17,8 @@ public class MouseInputSystem {
     }
 
     public void update(){
-        MouseEvent mouseEvent = mouseEventQueue.poll();
-        if (mouseEvent != null){
+        MouseEvent mouseEvent;
+        while((mouseEvent = mouseEventQueue.poll()) != null){
             reactToMouseEvent(mouseEvent);
         }
     }
