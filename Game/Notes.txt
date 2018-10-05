@@ -30,3 +30,10 @@ What defines a game ?
 List of stuff to fix-
 Stop after 1st step when moving in a direction
 movements that are not completed
+
+
+Event system
+Hitboxes
+Double position
+States
+replace 48 with default tile size

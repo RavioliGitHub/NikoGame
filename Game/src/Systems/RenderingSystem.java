@@ -5,12 +5,10 @@ import Controller.Keyboard;
 import Controller.Mouse;
 import Default.Game;
 import View.Drawing;
-import View.Images;
 import View.InGameImage;
 
 import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
