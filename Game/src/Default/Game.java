@@ -84,30 +84,19 @@ public class Game {
         int ID2  = EntityType.BACKPACK.create(10,2);
         EntityType.PLAYER1.testBackPackComponentCreation2(ID2);
 
-        int ID3 = EntityType.THIEF.create(10,10);
-        EntityType.BACKPACK.testNinjaComponentCreationAZERTY(ID3);
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(10,10));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(10,11));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(10,12));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(10,13));
+        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(10,1));
 
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(2, 2));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(4, 4));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(4, 2));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(2, 4));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(5, 5));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(1, 1));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(1, 5));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(5, 1));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(5, 2));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(5, 3));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(5, 4));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(1, 4));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(1, 3));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(1, 2));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(1, 1));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(2, 1));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(3, 1));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(4, 1));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(2, 5));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(3, 5));
-        EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(4, 5));
+
+        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,13));
+        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,14));
+        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,15));
+        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,16));
+        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,17));
+        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,18));
     }
 
 

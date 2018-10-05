@@ -5,6 +5,7 @@ import Controller.Keyboard;
 import Controller.Mouse;
 import Default.Game;
 import View.Drawing;
+import View.Images;
 import View.InGameImage;
 
 import javax.swing.*;

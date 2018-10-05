@@ -3,9 +3,7 @@ package Systems;
 import Components.ComponentManager;
 import Components.PositionComponent;
 import Components.QuickFixComponent;
-import Components.VelocityComponent;
 import Default.Game;
-import Default.Util;
 import Model.EntityType;
 
 import java.awt.event.MouseEvent;

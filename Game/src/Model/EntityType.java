@@ -26,7 +26,9 @@ public enum EntityType {
     GROUND(Images.GROUND),
 
     BREAKABLE_BLOCK(Images.BREAKABLE_BLOCK),
-    UNBREAKABLE_BLOCK(Images.UNBREAKABLE_BLOCK);
+    UNBREAKABLE_BLOCK(Images.UNBREAKABLE_BLOCK),
+
+    PLINFA(Images.PLINFA);
 
     private Images image;
 
@@ -52,7 +54,7 @@ public enum EntityType {
 
         new KeyActionComponent(ID, keyEventActionHashMap);
 
-        new VelocityComponent(ID, Direction.UP, 0, 10);
+        new VelocityComponent(ID, Direction.UP, 0, 7);
 
         QuickFixComponent quickFixComponent = new QuickFixComponent(ID);
         quickFixComponent.setCrossable(false);

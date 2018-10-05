@@ -2,9 +2,7 @@ package View;
 
 import Components.Direction;
 import Default.Util;
-
 import static Components.Direction.*;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -26,7 +24,9 @@ public enum Images implements InGameImage {
     GROUND("ground.jpg"),
 
     BREAKABLE_BLOCK("breakableblock.png"),
-    UNBREAKABLE_BLOCK("unbreakableblock.jpg");
+    UNBREAKABLE_BLOCK("unbreakableblock.jpg"),
+
+    PLINFA("plinfa.png");
 
     private BufferedImage bufferedImage;
 
@@ -68,8 +68,18 @@ public enum Images implements InGameImage {
     }
 
     public void draw(Graphics g, int x, int y) {
-        BufferedImage image = bufferedImage.getSubimage(0,0,48,48);
-        g.drawImage(image, x*48, y*48, 48, 48, null);
+        if(this != PLINFA) {
+            Util.println(this.toString());
+            BufferedImage image = bufferedImage.getSubimage(0, 0, 48, 48);
+            g.drawImage(image, x * 48, y * 48, 48, 48, null);
+        }else {
+            drawPlinfa(g,x,y);
+        }
+    }
+
+    public void drawPlinfa(Graphics g, int x, int y){
+        BufferedImage image = bufferedImage.getSubimage(0, 30, 19, 26);
+        g.drawImage(image, x * 48, y * 48, 190, 260, null);
     }
 
     public void drawMoving(
@@ -77,6 +87,11 @@ public enum Images implements InGameImage {
         boolean partOfMovement1, double percentageOfMovement,
         boolean moveDoneOnPosition,
         int x, int y){
+
+        if(this == PLINFA){
+            drawPlinfa(g,x,y);
+            return;
+        }
 
         int partOfMovXIndex = 0;
         if(walkingAnimation) {
@@ -124,6 +139,31 @@ public enum Images implements InGameImage {
     @Override
     public InGameImage cloneGraphic() {
         return this;
+    }
+
+    /**
+     * Converts a given Image into a BufferedImage
+     *
+     * @param img The Image to be converted
+     * @return The converted BufferedImage
+     */
+    public static BufferedImage toBufferedImage(Image img)
+    {
+        if (img instanceof BufferedImage)
+        {
+            return (BufferedImage) img;
+        }
+
+        // Create a buffered image with transparency
+        BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+
+        // Draw the image on to the buffered image
+        Graphics2D bGr = bimage.createGraphics();
+        bGr.drawImage(img, 0, 0, null);
+        bGr.dispose();
+
+        // Return the buffered image
+        return bimage;
     }
 
 }
