@@ -26,7 +26,7 @@ public enum Images implements InGameImage {
     BREAKABLE_BLOCK("breakableblock.png"),
     UNBREAKABLE_BLOCK("unbreakableblock.jpg"),
 
-    PLINFA("plinfa.png");
+    PLINFA("plinfaScaled.png", new Direction[]{DOWN,LEFT, UP, RIGHT}, true);
 
     private BufferedImage bufferedImage;
 
@@ -73,13 +73,60 @@ public enum Images implements InGameImage {
             BufferedImage image = bufferedImage.getSubimage(0, 0, 48, 48);
             g.drawImage(image, x * 48, y * 48, 48, 48, null);
         }else {
-            drawPlinfa(g,x,y);
+            throw new RuntimeException("not here");
         }
     }
 
-    public void drawPlinfa(Graphics g, int x, int y){
-        BufferedImage image = bufferedImage.getSubimage(0, 30, 19, 26);
-        g.drawImage(image, x * 48, y * 48, 190, 260, null);
+    public void drawPlinfa(
+        Graphics g, Direction direction, Direction directionOfMovement, boolean standing,
+        boolean partOfMovement1, double percentageOfMovement,
+        boolean moveDoneOnPosition,
+        int x, int y){
+
+
+        int partOfMovXIndex = 0;
+        if(true) {
+            if (!standing && percentageOfMovement > 0.2 && percentageOfMovement < 0.8) {
+                partOfMovXIndex += 1;
+            }
+            if (!partOfMovement1 && !standing && percentageOfMovement > 0.2 && percentageOfMovement < 0.8) {
+                partOfMovXIndex += 1;
+            }
+        }
+
+        int index = java.util.Arrays.asList(directionOrder).indexOf(direction);
+        BufferedImage image = bufferedImage.getSubimage(36*partOfMovXIndex, 65+(45*index*2), 36, 45);
+
+
+        int offset = (int) (48*percentageOfMovement);
+
+        x = x*48;
+        y = y*48;
+        switch (directionOfMovement){
+            case UP:
+                if(moveDoneOnPosition){y += 48;}
+                y -= offset;
+                break;
+
+            case DOWN:
+                if(moveDoneOnPosition){y -= 48;}
+                y += offset;
+                break;
+
+            case RIGHT:
+                if(moveDoneOnPosition){x -= 48;}
+                x += offset;
+                break;
+
+            case LEFT:
+                if(moveDoneOnPosition){x += 48;}
+                x -= offset;
+                break;
+
+            default:
+                throw new RuntimeException("Unknown direction");
+        }
+        g.drawImage(image, x+5, y, 36, 45, null);
     }
 
     public void drawMoving(
@@ -89,7 +136,7 @@ public enum Images implements InGameImage {
         int x, int y){
 
         if(this == PLINFA){
-            drawPlinfa(g,x,y);
+            drawPlinfa(g,direction,directionOfMovement,standing,partOfMovement1,percentageOfMovement,moveDoneOnPosition,x,y);
             return;
         }
 

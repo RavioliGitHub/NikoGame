@@ -54,7 +54,7 @@ public enum EntityType {
 
         new KeyActionComponent(ID, keyEventActionHashMap);
 
-        new VelocityComponent(ID, Direction.UP, 0, 7);
+        new VelocityComponent(ID, Direction.UP, 0, 5);
 
         QuickFixComponent quickFixComponent = new QuickFixComponent(ID);
         quickFixComponent.setCrossable(false);

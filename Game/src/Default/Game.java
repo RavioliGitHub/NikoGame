@@ -91,12 +91,7 @@ public class Game {
         EntityType.PLAYER1.testPlayerComponentCreation(EntityType.PLAYER1.create(10,1));
 
 
-        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,13));
-        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,14));
-        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,15));
-        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,16));
-        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,17));
-        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,18));
+        EntityType.PLINFA.testPlayerComponentCreation(EntityType.PLINFA.create(13,3));
     }
 
 

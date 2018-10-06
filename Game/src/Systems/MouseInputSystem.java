@@ -4,6 +4,7 @@ import Components.ComponentManager;
 import Components.PositionComponent;
 import Components.QuickFixComponent;
 import Default.Game;
+import Default.Util;
 import Model.EntityType;
 
 import java.awt.event.MouseEvent;
@@ -51,6 +52,8 @@ public class MouseInputSystem {
                 dragged = null;
                 break;
             case MOUSE_CLICKED:
+                String s = "(" + mouseEvent.getX() + " , " + mouseEvent.getY() + ")";
+                Util.println(s);
                 break;
             case MOUSE_MOVED:
                 break;
